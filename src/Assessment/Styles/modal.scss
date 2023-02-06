@@ -1,0 +1,111 @@
+// .modal {
+//   opacity: 100;
+//   position: fixed;
+//   z-index: 10100;
+//   top: 0;
+//   // left: -9999px;
+//   right: 0;
+//   bottom: 0;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+//   height: 100%;
+
+//   transition: left 0s ease-out 0.25s, opacity 0.2s ease-out;
+//   &.open {
+//     left: 0;
+//     opacity: 1;
+//     transition: left 0s ease-out, opacity 0.2s ease-out;
+//   }
+// }
+// // .modal__backdrop {
+// //   position: absolute;
+// //   z-index: 10110;
+// //   top: 0;
+// //   left: 0;
+// //   right: 0;
+// //   bottom: 0;
+// //   width: 100%;
+// //   height: 100%;
+// //   background-color: #f5f5f5;
+// //   opacity: 0.9;
+// // }
+// // .modal__container--cl {
+// //   width: 600px;
+// // }
+
+// // .modal__container {
+// //   position: absolute;
+// //   z-index: 10120;
+// //   width: 650px;
+// //   max-width: 96%;
+// //   // max-height: 96vh;
+// //   overflow: auto;
+// //   background-color: white;
+// //   padding: 30px 40px 50px;
+// //   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+// // }
+// // .modal__container--sm {
+// //   width: 500px;
+// //   height: 400px;
+// //   padding-right: 60px;
+// //   padding-left: 60px;
+// // }
+
+// // .modal__container--lg {
+// //   width: 700px;
+// //   height: 500px;
+// //   padding-right: 60px;
+// //   padding-left: 60px;
+// // }
+
+// // .modal__container--xl {
+// //   width: 950px;
+// //   height: 550px;
+// //   padding-right: 20px;
+// //   padding-left: 20px;
+// // }
+// // .modal__close {
+// //   position: absolute;
+// //   top: 27px;
+// //   right: 25px;
+// //   font-size: 15px;
+// //   cursor: pointer;
+// //   transition: color 0.2s ease-out;
+
+// //   &:hover {
+// //     color: blue-light;
+// //   }
+// // }
+
+// // .modal__title {
+// //   font-size: 14px;
+// //   text-transform: uppercase;
+// //   text-align: center;
+// //   font-weight: 500;
+// //   margin-bottom: 40px;
+// // }
+
+// // .modal__body__text {
+// //   font-size: 14px;
+// //   line-height: 25px;
+// //   text-align: center;
+// //   font-weight: 500;
+// //   margin: 40px auto;
+// // }
+
+// // .modal__body__label {
+// //   font-size: 12px;
+// //   line-height: 16px;
+// //   text-align: center;
+// //   font-weight: 500;
+// //   text-transform: uppercase;
+// //   margin: 30px auto 10px;
+// // }
+
+// // .modal__footer {
+// //   display: flex;
+// //   justify-content: center;
+// // }
