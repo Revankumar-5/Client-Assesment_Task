@@ -1,4 +1,4 @@
-import { VFC } from "../Assessment/types";
+import { VFC } from "../assessment/types";
 
 interface ModalProps {
   title: string | null;

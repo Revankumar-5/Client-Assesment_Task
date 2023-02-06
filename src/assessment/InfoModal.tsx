@@ -11,6 +11,7 @@ const enum Information {
   PLAYER_DETAILS = "Player Details",
 }
 const InfoModal: React.FC<InfoModalProps>= ({ teamInfo }) => {
+  
 
   const [information, setInformation] = useState<String>(Information.BASIC_INFO);
   const inputRef=React.useRef<HTMLInputElement>(null)

@@ -1,8 +1,24 @@
 export interface CompetitionsData {
   count: number;
   filters: {};
-  competitions: Competitions
+  competitions: {
+    id: number;
+    area: { id: number; name: string; countryCode: string; ensignUrl: string };
+    name: string;
+    code: string;
+    emblemUrl: string;
+    currentSeason: {
+      id: number;
+      startDate: string;
+      endDate: string;
+      currentMatchday: number;
+      winner: null;
+    };
+    numberOfAvailableSeasons: number;
+    lastUpdated: string;
+  }[];
 }
+
 
 export interface Competitions {
   id: number;
@@ -44,7 +60,7 @@ export interface Matches {
   matches: MatchList[];
 }
 
-export interface MatchList{
+export interface MatchList {
   id: number;
   season: {
     id: number;
@@ -94,7 +110,7 @@ export interface MatchList{
       nationality: string;
     }
   ];
-};
+}
 export interface Teams {
   count: number;
   filters: {};
@@ -116,10 +132,10 @@ export interface Teams {
     currentMatchday: number;
     winner: null;
   };
-  teams: TeamList[]
+  teams: TeamList[];
 }
 
-export interface TeamList{
+export interface TeamList {
   id: number;
   area: {
     id: number;

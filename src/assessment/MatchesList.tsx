@@ -1,12 +1,11 @@
 import { Matches, MatchList, TeamList, Teams } from "./types";
 import MatchListCard from "./MatchListCard";
 import InfoModal from "./InfoModal";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import {  useState } from "react";
 // import { Modal, ModalDialog } from "react-bootstrap/Modal";
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
-import { FALSE } from "sass";
+import {  Modal } from "react-bootstrap";
+import { fetchSelectedMatch } from "./api";
 
 interface MatchListProps {
   matches?: Matches;
@@ -14,21 +13,23 @@ interface MatchListProps {
   onHandleCompetition: () => void;
 }
 
-const MatchesList: React.FC<MatchListProps> = ({teamsData,matches,onHandleCompetition,}) => {
+const MatchesList: React.FC<MatchListProps> = ({
+  teamsData,
+  matches,
+  onHandleCompetition,
+}) => {
   const baseUrl = "./data/";
   const [matchTeams, setMatchTeams] = useState(teamsData);
   const [teamMatches, setTeamMatches] = useState(matches);
-  const [teamInfo,setTeamInfo] = useState()
+  const [teamInfo, setTeamInfo] = useState();
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const onMatchSelect =async (value: number) => {
-    const response = 
-    await axios.get(`${baseUrl}/teams/${value}.json`)
-      .then((response) => setTeamInfo(response.data));
+  const onMatchSelect = async (value: number) => {
+    const response = await fetchSelectedMatch(value);
+    setTeamInfo(response.data);
     setShowModal(true);
   };
-
 
   return (
     <>
@@ -70,12 +71,7 @@ const MatchesList: React.FC<MatchListProps> = ({teamsData,matches,onHandleCompet
           <div className="matchlist-main">
             <ul className="padding-zero" style={{ marginTop: "-50px" }}>
               {teamMatches?.matches.map((data: MatchList, index: number) => {
-                return (
-                  <MatchListCard
-                    key={index}
-                    data={data}
-                  />
-                );
+                return <MatchListCard key={index} data={data} />;
               })}
             </ul>
           </div>
@@ -95,7 +91,7 @@ const MatchesList: React.FC<MatchListProps> = ({teamsData,matches,onHandleCompet
               </button>
             </Modal.Header>
             <Modal.Body>
-              <InfoModal  teamInfo={teamInfo}/>
+              <InfoModal teamInfo={teamInfo} />
             </Modal.Body>
           </Modal>
         </>

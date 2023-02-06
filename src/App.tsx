@@ -2,18 +2,20 @@ import axios from "axios";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import CompetitionList from "./Assessment/CompetitionList";
-import MatchesList from "./Assessment/MatchesList";
-import "./Assessment/style.scss";
-import Data from "../public/data/competitions/competitions.json"
-import "./Assessment/modal.scss";
+import CompetitionList from "./assessment/CompetitionList";
+import MatchesList from "./assessment/MatchesList";
+import "./assessment/Styles/style.scss";
+import Data from "../public/data/competitions/competitions.json";
+// import "./Assessment/modal.scss";
 import { useState } from "react";
-import {  Matches } from "./Assessment/types";
-
-
+import { Matches } from "./assessment/types";
+import {
+  fetchCompetitionsMatches,
+  fetchCompetitionsTeams,
+} from "./assessment/api";
 
 function App() {
-  const baseUrl = './data/'
+  const baseUrl = "./data/";
   const [toggle, setToggle] = useState(false);
   const [teams, setTeams] = useState();
   const [matches, setMatches] = useState<Matches>();
@@ -21,16 +23,14 @@ function App() {
   const onHandleCompetition = () => {
     setToggle(false);
   };
-  const onHandleMatchList =async (data: number) => {
-   await axios.get(`${baseUrl}competitions/matches/${data}.json`).then((response) => {
-    setMatches(response.data)  
-    });
-  await  axios.get(`.${baseUrl}competitions/teams/${data}.json`).then((response) => {
-    setTeams(response.data)  
-    });
+  const onHandleMatchList = async (data: number) => {
+    const matches = await fetchCompetitionsMatches(data);
+    setMatches(matches.data);
+    const teams = await fetchCompetitionsTeams(data);
+    setTeams(teams.data);
     setToggle(true);
   };
-console.log(teams);
+  
 
   return (
     <>
@@ -38,7 +38,11 @@ console.log(teams);
         <CompetitionList data={Data} onHandleMatchList={onHandleMatchList} />
       )}
       {toggle && (
-        <MatchesList matches={matches}  teamsData={teams} onHandleCompetition={onHandleCompetition} />
+        <MatchesList
+          matches={matches}
+          teamsData={teams}
+          onHandleCompetition={onHandleCompetition}
+        />
       )}
     </>
   );
