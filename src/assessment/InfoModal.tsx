@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useRef, useState } from "react";
 import BasicInfo from "./BasicInfo";
 import PlayerDetails from "./PlayerDetails";
-import { TeamDetails } from "./types";
+import { TeamInfo } from "./types";
 
-type InfoModalProps = {  teamInfo: any };
+type InfoModalProps = {  teamInfo?: TeamInfo };
 
 const enum Information {
   BASIC_INFO = "BasicInfo",

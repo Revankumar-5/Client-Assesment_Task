@@ -19,7 +19,6 @@ export interface CompetitionsData {
   }[];
 }
 
-
 export interface Competitions {
   id: number;
   area: {
@@ -40,8 +39,7 @@ export interface Competitions {
   };
   numberOfAvailableSeasons: number;
   lastUpdated: string;
-}
-[];
+}[];
 
 export interface Matches {
   count: number;
@@ -153,4 +151,46 @@ export interface TeamList {
   clubColors: string;
   venue: string;
   lastUpdated: string;
+}
+
+export interface TeamInfo {
+  id: number;
+  area: Area;
+  activeCompetitions: {
+    id: number;
+    area: Area;
+    name: string;
+    code: string;
+    plan: string;
+    lastUpdated: string;
+  }[];
+  name: string;
+  shortName: string;
+  tla: string;
+  crestUrl: string;
+  address: string;
+  phone: string;
+  website: string;
+  email: string;
+  founded: number;
+  clubColors: string;
+  venue: string;
+  squad: Squad[];
+  lastUpdated: string;
+}
+
+export interface Squad{
+  id: number;
+  name: string;
+  position: string | null;
+  dateOfBirth: string;
+  countryOfBirth: null | string;
+  nationality: string;
+  shirtNumber: number | null;
+  role: string | null;
+}
+
+export interface Area{
+  id: number;
+  name: string;
 }

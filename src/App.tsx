@@ -4,9 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import CompetitionList from "./assessment/CompetitionList";
 import MatchesList from "./assessment/MatchesList";
-import "./assessment/Styles/style.scss";
+import "./assessment/styles/style.scss";
 import Data from "../public/data/competitions/competitions.json";
-// import "./Assessment/modal.scss";
 import { useState } from "react";
 import { Matches } from "./assessment/types";
 import {

@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { Squad } from "./types";
 
-type PlayerDetailsProps = {  data: any; };
+type PlayerDetailsProps = {  data: Squad; };
 
 
 const PlayerList: React.FC<PlayerDetailsProps> = ({ data }) => {
   const[enabled,setEnabled]=useState(false)
-  console.log(data);
   
   return (
     <>

@@ -1,15 +1,18 @@
-import axios from "axios";
+import axios, { InternalAxiosRequestConfig } from "axios";
 
-const baseUrl = "./data/";
+axios.interceptors.request.use((config:InternalAxiosRequestConfig) => {
+		 config.baseURL="./data/";
+     return config;
+});
 
-
-export const fetchCompetitionsMatches = async (data:number) => {
-  return await axios.get(`${baseUrl}competitions/matches/${data}.json`);
+export const fetchCompetitionsMatches = async (id:number) => {
+  return await axios.get(`competitions/matches/${id}.json`);
 };
 
-export const fetchCompetitionsTeams = async (data:number)=> {
-    return  axios.get(`.${baseUrl}competitions/teams/${data}.json`)
+export const fetchCompetitionsTeams = async (id:number)=> {
+    return  axios.get(`competitions/teams/${id}.json`)
 };
-export const fetchSelectedMatch = async (value:number)=> {
-    return axios.get(`.${baseUrl}/teams/${value}.json`)
+
+export const fetchSelectedMatch = async (id:number)=> {
+    return axios.get(`teams/${id}.json`)
 };

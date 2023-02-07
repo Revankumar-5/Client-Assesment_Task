@@ -1,9 +1,9 @@
 import { VFC } from "react";
 import pen from "../images/pen.svg";
 import PlayerList from "./PlayerList";
-import { TeamDetails } from "./types";
+import { TeamInfo,Squad } from "./types";
 
-type PlayerDetailsProps = {  teamInfo: any; };
+type PlayerDetailsProps = {  teamInfo?: TeamInfo };
 
 const PlayerDetails: React.FC<PlayerDetailsProps> = ({ teamInfo }) => {
   return (
@@ -18,7 +18,7 @@ const PlayerDetails: React.FC<PlayerDetailsProps> = ({ teamInfo }) => {
           </tr>
         </thead>
         <tbody className="table-border">
-          {teamInfo?.squad.map((data:any ,index: number
+          {teamInfo?.squad.map((data:Squad ,index: number
             ) => {
               return <PlayerList key={index} data={data} />;
             }
