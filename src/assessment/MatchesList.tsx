@@ -2,48 +2,45 @@ import { Matches, MatchList, TeamList, Teams } from "./types";
 import MatchListCard from "./MatchListCard";
 import InfoModal from "./InfoModal";
 import {  useState } from "react";
-// import { Modal, ModalDialog } from "react-bootstrap/Modal";
 import React from "react";
 import {  Modal } from "react-bootstrap";
-import { fetchSelectedMatch } from "./api";
+import { fetchMatch } from "./api";
 
 interface MatchListProps {
   matches?: Matches;
   teamsData?: Teams;
-  onHandleCompetition: () => void;
+  handleCompetition: () => void;
 }
 
 const MatchesList: React.FC<MatchListProps> = ({
   teamsData,
   matches,
-  onHandleCompetition,
+  handleCompetition,
 }) => {
-  const baseUrl = "./data/";
   const [matchTeams, setMatchTeams] = useState(teamsData);
   const [teamMatches, setTeamMatches] = useState(matches);
   const [teamInfo, setTeamInfo] = useState();
 
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showInfoModal, setShowInfoModal] = useState<boolean>(false);
 
   const onMatchSelect = async (value: number) => {
-    const response = await fetchSelectedMatch(value);
+    const response = await fetchMatch(value);
     setTeamInfo(response.data);
-    setShowModal(true);
+    setShowInfoModal(true);
   };
 
   return (
     <>
-      <div className="container ">
+      <div className="container">
         <button
           type="button"
-          style={{ float: "right" }}
-          className="btn btn-light"
-          onClick={() => onHandleCompetition()}
+          className="button_right"
+          onClick={() => handleCompetition()}
         >
           Back To Home
         </button>
 
-        <h3 className="header-index ">MATCHES LIST</h3>
+        <h3 className="header-index">MATCHES LIST</h3>
         <div className="Match-body">
           <div className="matchlist-side ">
             <div>
@@ -69,7 +66,7 @@ const MatchesList: React.FC<MatchListProps> = ({
             </div>
           </div>
           <div className="matchlist-main">
-            <ul className="padding-zero" style={{ marginTop: "-50px" }}>
+            <ul className="matchlist-card">
               {teamMatches?.matches.map((data: MatchList, index: number) => {
                 return <MatchListCard key={index} data={data} />;
               })}
@@ -78,14 +75,14 @@ const MatchesList: React.FC<MatchListProps> = ({
         </div>
       </div>
 
-      {showModal && (
+      {showInfoModal && (
         <>
-          <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal show={showInfoModal} onHide={() => setShowInfoModal(false)}>
             <Modal.Header>
               <button
                 type="button"
                 className="btn btn-light modal-buttons"
-                onClick={() => setShowModal(false)}
+                onClick={() => setShowInfoModal(false)}
               >
                 Close
               </button>

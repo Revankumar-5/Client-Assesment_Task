@@ -1,6 +1,5 @@
 import { TeamInfo } from "./types";
 
-
 type BasicInfoProps = {  teamInfo?: TeamInfo };
 
 const BasicInfo: React.FC<BasicInfoProps> = ({ teamInfo }) => {

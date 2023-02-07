@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Squad } from "./types";
 
-type PlayerDetailsProps = {  data: Squad; };
-
+type PlayerDetailsProps = { data: Squad };
 
 const PlayerList: React.FC<PlayerDetailsProps> = ({ data }) => {
-  const[enabled,setEnabled]=useState(false)
-  
+  const [enabled, setEnabled] = useState(false);
+
   return (
     <>
       <tr>
@@ -21,7 +20,7 @@ const PlayerList: React.FC<PlayerDetailsProps> = ({ data }) => {
             disabled={!enabled ? true : false}
             className="col-4 input-border"
             type="text"
-            defaultValue={data.dateOfBirth.slice(0,4)}
+            defaultValue={data.dateOfBirth?.slice(0, 4)}
           />
           <input
             disabled={!enabled ? true : false}
@@ -29,7 +28,6 @@ const PlayerList: React.FC<PlayerDetailsProps> = ({ data }) => {
             type="text"
             defaultValue={data.id}
           />
-          <button className="col-2 player-button" onClick={()=>setEnabled(!enabled)}>{!enabled ?"Edit":"Save"} </button>
         </th>
       </tr>
     </>

@@ -35,6 +35,11 @@
   margin-top: 50px;
 }
 
+.match-card-name {
+  display: block;
+  text-align: center;
+}
+
 .versus {
   margin-top: 65px;
 }
@@ -58,7 +63,6 @@
   width: 360px;
   display: inline-flex;
   overflow-y: scroll;
-
 }
 
 .matchlist-main {
@@ -77,6 +81,11 @@
 
 .padding-zero {
   padding: 0px 0px 0px 0px;
+  display: flex;
+}
+.matchlist-card {
+  padding: 0px 0px 0px 0px;
+  margin-top: -50px;
 }
 
 .list-data {
@@ -108,6 +117,10 @@
 .Match-body {
   display: flex;
 }
+
+.button_right {
+  margin-left: 920px;
+}
 // ------------------------------------------------- Basic Info  & Player Details  Modal Style
 
 .modal-info {
@@ -123,7 +136,6 @@
   color: rgb(15, 15, 94);
   font-size: 32px;
   margin-top: 70px;
-
 }
 
 .basicInfo-country {
@@ -157,17 +169,15 @@
   float: left;
   margin-top: 10px;
   margin-left: 5px;
-  
-  
 }
 
-.player-button{
+.player-button {
   border-radius: 30px 30px 30px 30px;
-  width:100px;
+  width: 100px;
   border-color: aqua;
 }
 
-.modal-content{
+.modal-content {
   width: 860px;
   height: 590px;
   margin-left: -160px;
@@ -180,3 +190,7 @@
 .modal-table-header {
   text-align: center;
 }
+
+
+
+

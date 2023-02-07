@@ -13,6 +13,10 @@ export const fetchCompetitionsTeams = async (id:number)=> {
     return  axios.get(`competitions/teams/${id}.json`)
 };
 
-export const fetchSelectedMatch = async (id:number)=> {
+export const fetchMatch = async (id:number)=> {
     return axios.get(`teams/${id}.json`)
+};
+
+export const fetchCompetitions = async ()=> {
+  return axios.get(`competitions/competitions.json`)
 };

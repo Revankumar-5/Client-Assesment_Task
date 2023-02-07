@@ -1,24 +1,24 @@
 import { Competitions, CompetitionsData } from "./types";
 
 interface CompetitionListProps {
-  data: CompetitionsData;
-  onHandleMatchList: (data:number) => void;
+  data?: CompetitionsData;
+  handleMatchList: (data:number) => void;
 }
 
-const CompetitionList: React.FC<CompetitionListProps> = ({data, onHandleMatchList, }) => {
+const CompetitionList: React.FC<CompetitionListProps> = ({data, handleMatchList, }) => {
   
   return (
     <>
       <div className="container">
         <h3 className="header-index">COMPETITIONS LIST</h3>
 
-        {data.competitions.map((data: Competitions, index: number) => {
+        {data?.competitions.map((data: Competitions, index: number) => {
           return (
             <>
               <div
                 className="card"
                 key={index}
-                onClick={() => onHandleMatchList(data.id)}
+                onClick={() => handleMatchList(data.id)}
               >
                 <div className="card-name">{data.name}</div>
                 <img
