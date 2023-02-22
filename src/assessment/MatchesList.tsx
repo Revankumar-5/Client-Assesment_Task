@@ -41,7 +41,7 @@ const MatchesList: React.FC<MatchListProps> = ({
         </button>
 
         <h3 className="header-index">MATCHES LIST</h3>
-        <div className="Match-body">
+        <div className="match-body">
           <div className="matchlist-side ">
             <div>
               {
